@@ -1,0 +1,211 @@
+:host {
+  width: 100%;
+  position: relative;
+
+  ::ng-deep {
+    .ngx-datatable .datatable-header {
+      background: #DBE9F0;
+      display: flex;
+      align-items: center;
+    }
+
+    .datatable-row-center {
+      align-items: center;
+    }
+
+    .datatable-header-cell-template-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .datatable-body-cell {
+      text-align: center;
+    }
+
+    .datatable-body-row {
+      padding: 3px 0;
+      text-align: center;
+      border-bottom: 1px solid lightblue;
+    }
+
+    .ngx-datatable .datatable-footer {
+      display: none;
+    }
+
+    .ngx-datatable .datatable-summary-row .datatable-body-row {
+      margin-top: 20px;
+      background-color: #EFF2F5;
+      border: none;
+    }
+
+    .ngx-datatable .datatable-summary-row .datatable-body-cell {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:first-child {
+        justify-content: start;
+        margin-left: 20px;
+        font-size: 30px;
+        text-transform: uppercase;
+        color: #4A90B6;
+      }
+    }
+  }
+}
+
+.table-header {
+  position: absolute;
+  font-size: 14px;
+  z-index: 1;
+  top: 5px;
+  left: 60%;
+}
+
+.ngx-datatable {
+  border-radius: 10px;
+}
+
+.header-cell {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+.appliance-cell {
+  border: none;
+  text-align: start;
+  outline: none;
+}
+
+.quantity-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.button {
+  color: #fff;
+  font-weight: bold;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: none;
+  background-color: #92BCD2;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+
+  &-plus {
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50%;
+      height: 2px;
+      background-color: #fff;
+      transform: translate(-50%, -50%);
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+  }
+
+  &-minus {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50%;
+      height: 2px;
+      background-color: #fff;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.time-input {
+  max-width: 50px;
+  padding: 5px 10px;
+  border: 1px solid #d3d3d3;
+  text-align: center;
+}
+
+.group-header {
+  color: #4A90B6;
+  margin: 10px 0;
+}
+
+.settings {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+
+  .dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: #707070;
+  }
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+
+  .button {
+    width: 100%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #707070;
+
+    &-remove {
+      color: #FF8244;
+    }
+  }
+}
+
+.editable-cell {
+  max-width: 100%;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+.start {
+  text-align: start;
+}
+
+.summer {
+  color: #FF8244;
+}
+
+.winter {
+  color: #4A90B6;
+}
+
+.annual {
+  color: #707070;
+}
+
+

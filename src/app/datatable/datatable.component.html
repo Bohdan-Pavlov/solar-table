@@ -1,0 +1,73 @@
+<div class="table-header">{{ tableHeader }}</div>
+
+<ngx-datatable
+  #myTable
+  class="material"
+  [rows]="rows"
+  [columns]="columns"
+  [groupRowsBy]="'category'"
+  [groupExpansionDefault]="true"
+  [columnMode]="ColumnMode.force"
+  [headerHeight]="60"
+  [footerHeight]="50"
+  [summaryPosition]="'bottom'"
+  [summaryRow]="true"
+  [summaryHeight]="70"
+  rowHeight="auto">
+    <ngx-datatable-group-header [rowHeight]="50">
+        <ng-template let-group="group" ngx-datatable-group-header-template>
+            <h3 class="group-header">{{ group.key | uppercase }}</h3>
+        </ng-template>
+    </ngx-datatable-group-header>
+</ngx-datatable>
+
+<ng-template #headerCell let-column="column">
+    <div class="header-cell">
+        <h6 [ngClass]="getTitle(column)">{{ getTitle(column) }}</h6>
+        <p>{{column.name}}</p>
+    </div>
+</ng-template>
+
+<ng-template #timeCell let-row="row" let-value="value" let-column="column">
+  <input
+    type="number"
+    class="time-input"
+    [value]="value"
+    (change)="changeRowField(row, $event, column.prop)">
+</ng-template>
+
+<ng-template #editableCell let-row="row" let-value="value" let-column="column">
+  <input
+    type="text"
+    class="appliance-cell"
+    [value]="value"
+    (change)="changeRowField(row, $event, column.prop)">
+</ng-template>
+
+<ng-template #quantityCell let-value="value" let-row="row">
+    <div class="quantity-cell">
+        <button class="button button-minus" (click)="decreaseQuantity(row)"></button>
+        <span>{{value}}</span>
+        <button class="button button-plus" (click)="increaseQuantity(row)"></button>
+    </div>
+</ng-template>
+
+<ng-template #annualCell let-row="row">
+    <span>{{getValueForAnnualCell(row)}}</span>
+</ng-template>
+
+<ng-template #calculateSummerCell let-row="row">
+  <span>{{getValueCalculateSummer(row)}}</span>
+</ng-template>
+<ng-template #calculateWinterCell let-row="row">
+  <span>{{getValueCalculateWinter(row)}}</span>
+</ng-template>
+
+<ng-template #settingsCell let-row="row">
+    <div class="settings" (click)="openModal(row)">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</ng-template>
+
